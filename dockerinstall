@@ -1,0 +1,11 @@
+#add docker repo to system
+sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+#install docker pkgs from previously installed repo
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+#enable the service without a required reboot
+sudo systemctl --now enable docker
+
+#Add non-root user to docker group
+usermod -aG docker todd
